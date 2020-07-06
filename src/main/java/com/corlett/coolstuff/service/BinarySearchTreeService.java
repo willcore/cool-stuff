@@ -12,9 +12,26 @@ public class BinarySearchTreeService {
      */
 
     public static BSTNode minHeightBST(Integer[] array){
-        //Stubb
+        //calling the algo
+        return createBalancedBST(array, 0, array.length -1);
+    }
 
-        return new BSTNode(0);
+    private static BSTNode createBalancedBST(Integer[] array, int start, int end) {
+
+        if(start > end) {
+            return null;
+        }
+
+        //getting middle element
+        int middle = (start + end)/2;
+        BSTNode midNode = new BSTNode(middle);
+
+        //build left side of the tree
+        midNode.setLeft(createBalancedBST(array, start, middle-1));
+        //build right side of the tree
+        midNode.setLeft(createBalancedBST(array, middle + 1, end));
+
+        return midNode;
     }
 
 

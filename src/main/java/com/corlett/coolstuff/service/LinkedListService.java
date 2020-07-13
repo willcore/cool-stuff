@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class LinkedListService {
 
-    public static Node detectCycle(com.corlett.coolstuff.model.Node head) {
+    public static Node detectCycle(Node head) {
 
         Map<String, Boolean> crossCheck = new HashMap<>();
 
@@ -22,5 +22,23 @@ public class LinkedListService {
         }
 
         return head;
+    }
+
+    public static Node detectCycleTricky(Node head) {
+
+        Node skip = head.getNext();
+        Node trail = head;
+
+        while(head.getNext()!=null) {
+
+            if(head == skip) {
+                return trail;
+            }
+            trail = head;
+            head = head.getNext();
+            skip = skip.getNext().getNext();
+        }
+
+        return null;
     }
 }

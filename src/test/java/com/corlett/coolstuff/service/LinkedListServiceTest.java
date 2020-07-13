@@ -32,4 +32,12 @@ public class LinkedListServiceTest {
 
         Assert.assertTrue(solution.getContent().equals("2"));
     }
+
+    @Test
+    public void detectCycleTestTricky() {
+
+        Node solution = LinkedListService.detectCycleTricky(head);
+
+        Assert.assertTrue(solution.getContent().equals("2"));
+    }
 }

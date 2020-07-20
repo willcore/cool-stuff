@@ -7,6 +7,27 @@ import java.util.Map;
 
 public class LinkedListService {
 
+    public static Node removeDuplicate(Node head) {
+
+        Node hold = head;
+        Node tail = null;
+
+        Map<String, Boolean> crossCheck = new HashMap<>();
+
+        while(head.getNext()!=null) {
+            if(crossCheck.containsKey(head.getContent())) {
+                //remove dup logic
+                tail.setNext(head.getNext());
+            }
+            tail = head;
+            crossCheck.put(head.getContent(), true);
+            head = head.getNext();
+
+        }
+
+        return hold;
+    }
+
     public static Node detectCycle(Node head) {
 
         Map<String, Boolean> crossCheck = new HashMap<>();

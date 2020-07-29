@@ -3,9 +3,32 @@ package com.corlett.coolstuff.service;
 import com.corlett.coolstuff.model.Node;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class LinkedListService {
+
+    public static boolean isThisLLaPalindrome(Node head) {
+
+        Set<String> collection = new HashSet<>();
+
+        while(head.getNext()!= null) {
+            if(collection.contains(head.getContent())){
+                collection.remove(head.getContent());
+            } else {
+                collection.add(head.getContent());
+            }
+
+            head = head.getNext();
+        }
+
+        if(collection.size() > 1) {
+            return false;
+        }
+
+        return true;
+    }
 
     public static Node removeDuplicate(Node head) {
 

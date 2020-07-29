@@ -11,6 +11,15 @@ public class Utility {
         System.out.println(stringify(node));
     }
 
+    public static void print_LL(Node head) {
+
+        while(head.getNext()!=null) {
+            System.out.print(head.getContent() + "-> ");
+            head = head.getNext();
+        }
+        System.out.println();
+    }
+
     public static Node buildLinkedList(List<String> linkedList) {
 
         Node prev = null;

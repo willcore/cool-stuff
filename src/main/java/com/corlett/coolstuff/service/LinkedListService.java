@@ -23,11 +23,18 @@ public class LinkedListService {
             head = head.getNext();
         }
 
-        if(collection.size() > 1) {
-            return false;
+        //grabbing last node
+        if(collection.contains(head.getContent())){
+            collection.remove(head.getContent());
+        } else {
+            collection.add(head.getContent());
         }
 
-        return true;
+        if(collection.size() < 2 ){
+            return true;
+        }
+
+        return false;
     }
 
     public static Node removeDuplicate(Node head) {

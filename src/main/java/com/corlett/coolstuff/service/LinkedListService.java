@@ -9,6 +9,31 @@ import java.util.Set;
 
 public class LinkedListService {
 
+
+    /*
+    Given two singly linked lists, determine if the two lists intersect.
+    Return the intersecting node.
+    Note that the intersection is defined based on reference not by value.
+     */
+    public static Node intersectingLL(Node head1, Node head2) {
+
+        //n^2 Algo
+        while(head1 != null) {
+            while(head2 != null) {
+                if(head1==head2){
+                    return head1;
+                }
+
+                head2 = head2.getNext();
+            }
+            head1 = head1.getNext();
+
+        }
+
+        return null;
+
+    }
+
     public static boolean isThisLLaPalindrome(Node head) {
 
         Set<String> collection = new HashSet<>();
